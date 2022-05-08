@@ -2,6 +2,7 @@ import sys
 
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import uic
+from password_utils import *
 
 def open_admin_panel():
     admin_panel.show()
@@ -14,6 +15,13 @@ def open_change_username():
 
 def open_create_account():
     create_account.show()
+
+def create_account_action():
+    username = create_account.username_input.text()
+    password = create_account.password_input.text()
+    save_password(username, password, "N")
+    create_account.username_input.setText("")
+    create_account.password_input.setText("")
 
 def open_force_logout():
     force_logout.show()
@@ -78,6 +86,9 @@ def load_buttons():
     #admin_panel.kick_user.clicked.connect(open_kick_user)
     #admin_panel.ban_user_group.clicked.connect(open_ban_user_group)
     admin_panel.exit.clicked.connect(exit)
+
+    #Create Account Buttons
+    create_account.create_account.clicked.connect(create_account_action)
 
 def loadUi(filename:str):
     return uic.loadUi(f'UI_Files/{filename}')

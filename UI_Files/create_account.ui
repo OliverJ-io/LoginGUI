@@ -77,6 +77,9 @@
     <property name="focusPolicy">
      <enum>Qt::ClickFocus</enum>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
    <widget class="QPushButton" name="create_account">
     <property name="geometry">

@@ -14,7 +14,7 @@
    <string>Change Username</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="username">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -27,7 +27,7 @@
      <string>Username</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="username_input">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -43,7 +43,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="new_username">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -56,7 +56,7 @@
      <string>New Username</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="new_username_input">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -72,7 +72,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="cuhange_username_button">
     <property name="geometry">
      <rect>
       <x>10</x>

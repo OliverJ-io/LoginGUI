@@ -23,7 +23,7 @@ while running:
     elif prompt_option == "4":
         username = input("Username: ")
         password = input("Password: ")
-        if read_file(filename, username)['PASSWORD'] == hash_password(password) and read_file(filename, username)['ADMIN']:
+        if read_file(filename, username)['PASSWORD'] == hash_password(password) and read_file(filename, username)['ADMIN'] == 'True':
             print("You Are Admin")
         else:
             print("You Are Not A Admin")

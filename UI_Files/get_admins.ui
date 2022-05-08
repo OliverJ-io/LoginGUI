@@ -46,7 +46,7 @@
      </sizepolicy>
     </property>
     <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
+     <enum>Qt::WheelFocus</enum>
     </property>
    </widget>
   </widget>
