@@ -1,6 +1,7 @@
 import csv, hashlib
 
 PasswordHeaders = ["USERNAME", "PASSWORD", "ADMIN"]
+filename = "passwords.csv"
 
 def save_to_file(key, string, is_admin, file):
     with open(file, mode="a", newline='') as csvfile:
@@ -11,7 +12,7 @@ def save_to_file(key, string, is_admin, file):
 def hash_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 
-def save_password(user,password, is_admin, file):
+def save_password(user,password, is_admin):
     if is_admin == "Y":
         admin = True
     elif is_admin == "N":
@@ -22,10 +23,10 @@ def save_password(user,password, is_admin, file):
         admin = False
     else:
         admin = False
-    save_to_file(user, hash_password(password), admin, file)
+    save_to_file(user, hash_password(password), admin, filename)
 
-def read_file(file, user):
-    with open(file, newline='') as csvfile:
+def read_file(user):
+    with open(filename, newline='') as csvfile:
         reader = csv.DictReader(csvfile, fieldnames=PasswordHeaders)
         for row in reader:
             if row['USERNAME'] == user:

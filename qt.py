@@ -4,8 +4,15 @@ from PyQt6.QtWidgets import QApplication
 from PyQt6 import uic
 from password_utils import *
 
+isLoggedIn = False
+LoggedInUser = ""
+
 def open_admin_panel():
-    admin_panel.show()
+    global LoggedInUser, isLoggedIn
+    if isLoggedIn and read_file(LoggedInUser)["ADMIN"] == 'True':
+        admin_panel.show()
+    else:
+        pass
 
 def open_change_password():
     change_password.show()
@@ -22,6 +29,7 @@ def create_account_action():
     save_password(username, password, "N")
     create_account.username_input.setText("")
     create_account.password_input.setText("")
+    create_account.hide()
 
 def open_force_logout():
     force_logout.show()
@@ -37,6 +45,17 @@ def back_admin_panel():
 
 def open_login():
     login.show()
+
+def login_action():
+    global isLoggedIn, LoggedInUser
+    username = login.username_input.text()
+    password = login.password_input.text()
+    if read_file(username)['PASSWORD'] == hash_password(password):
+        login.username_input.setText("")
+        login.password_input.setText("")
+        isLoggedIn = True
+        LoggedInUser = username
+        login.hide()
 
 def open_message_user():
     message_user.show()
@@ -89,6 +108,9 @@ def load_buttons():
 
     #Create Account Buttons
     create_account.create_account.clicked.connect(create_account_action)
+
+    #Login Buttons
+    login.login.clicked.connect(login_action)
 
 def loadUi(filename:str):
     return uic.loadUi(f'UI_Files/{filename}')
