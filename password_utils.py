@@ -1,7 +1,7 @@
 import csv, hashlib
 
 PasswordHeaders = ["USERNAME", "PASSWORD", "ADMIN"]
-filename = "passwords.csv"
+filename = "Data/passwords.csv"
 
 def save_to_file(key, string, is_admin, file):
     with open(file, mode="a", newline='') as csvfile:

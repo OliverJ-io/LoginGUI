@@ -3,6 +3,7 @@ import sys
 from PyQt6.QtWidgets import QApplication
 from PyQt6 import uic
 from password_utils import *
+from group_utils import *
 
 isLoggedIn = False
 LoggedInUser = ""
@@ -106,11 +107,11 @@ def load_buttons():
     #admin_panel.ban_user_group.clicked.connect(open_ban_user_group)
     admin_panel.exit.clicked.connect(exit)
 
+    # Login Buttons
+    login.login.clicked.connect(login_action)
+
     #Create Account Buttons
     create_account.create_account.clicked.connect(create_account_action)
-
-    #Login Buttons
-    login.login.clicked.connect(login_action)
 
 def loadUi(filename:str):
     return uic.loadUi(f'UI_Files/{filename}')
